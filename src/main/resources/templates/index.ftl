@@ -10,9 +10,6 @@
     <@netCommon.commonScript />
 
 <script>
-
-    <@netCommon.viewerCounter />
-
     $(function () {
         /**
          * 初始化 table sql 3
@@ -152,24 +149,6 @@
                 genCodeArea.setSize('auto', 'auto');
             }
         });
-        /**
-         * 捐赠
-         */
-        function donate(){
-            if($("#donate").attr("show")=="no"){
-                $("#donate").html('<img src="https://raw.githubusercontent.com/moshowgame/SpringBootCodeGenerator/master/donate.png"></img>');
-                $("#donate").attr("show","yes");
-            }else{
-                $("#donate").html('<p>谢谢赞赏！</p>');
-                $("#donate").attr("show","no");
-            }
-        }
-        $('#donate1').on('click', function(){
-            donate();
-        });
-        $('#donate2').on('click', function(){
-            donate();
-        });
         $('#btnCopy').on('click', function(){
             if(!$.isEmptyObject(genCodeArea.getValue())&&!$.isEmptyObject(navigator)&&!$.isEmptyObject(navigator.clipboard)){
                 navigator.clipboard.writeText(genCodeArea.getValue());
@@ -203,30 +182,17 @@
 </script>
 </head>
 <body style="background-color: #e9ecef">
-
-    <div class="container">
-        <nav class="navbar navbar-dark bg-primary btn-lg">
-            <a class="navbar-brand" href="http://www.bejson.com">BeJSON在线工具站</a>
-            <ul class="nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://zhengkai.blog.csdn.net">zhengkai.blog.csdn.net</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
         <h2>Spring Boot Code Generator!</h2>
         <p class="lead">
-            √基于SpringBoot2+Freemarker的<a class="lead" href="https://github.com/moshowgame/SpringBootCodeGenerator">代码生成器</a><br>
+            √基于SpringBoot2+Freemarker的代码生成器</a><br>
             √以解放双手为目的，减少大量重复的CRUD工作<br>
             √支持mysql/oracle/pgsql三大数据库<br>
             √用DDL-SQL语句生成JPA/JdbcTemplate/Mybatis/MybatisPlus/BeetlSQL相关代码。<br>
-            如果发现有SQL语句不能识别，请<a href="https://github.com/moshowgame/SpringBootCodeGenerator/issues">留言</a>，同时欢迎大家提<a href="https://github.com/moshowgame/SpringBootCodeGenerator/pulls">PR</a>和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>
+            </a>
         </p>
-        <div id="donate" class="container" show="no"></div>
         <hr>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -242,7 +208,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">作者</span>
             </div>
-            <input type="text" class="form-control" id="authorName" name="authorName" value="zhengkai.blog.csdn.net">
+            <input type="text" class="form-control" id="authorName" name="authorName" value="github.com.wjw465150.JpaCodeBuilder">
             <div class="input-group-prepend">
                 <span class="input-group-text">返回</span>
             </div>
@@ -250,7 +216,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">包名</span>
             </div>
-            <input type="text" class="form-control" id="packageName" name="packageName" value="com.softdev.system">
+            <input type="text" class="form-control" id="packageName" name="packageName" value="org.ws.data">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -430,7 +396,5 @@ CREATE TABLE 'userinfo' (
         <textarea id="genCodeArea" class="form-control btn-lg" ></textarea>
     </div>
 </div>
-
-    <@netCommon.commonFooter />
 </body>
 </html>

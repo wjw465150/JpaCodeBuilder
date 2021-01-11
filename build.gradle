@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.7.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
-	id 'war'
+  id 'org.springframework.boot' version '2.3.10.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+  id 'war'
 }
 
 group = 'org.wjw.jpa'
@@ -17,32 +17,29 @@ repositories {
 }
 
 dependencies {
-    //implementation可以让module在编译时隐藏自己使用的依赖，但是在运行时这个依赖对所有模块是可见的。
-    //而api与compile一样，无法隐藏自己使用的依赖。
-    //implementation的目的:1. 加快编译速度。 2. 隐藏对外不必要的接口。
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	
-	//支持 @ConfigurationProperties 注解
-    //implementation 'org.springframework.boot:spring-boot-configuration-processor'
-
-	implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+  //implementation可以让module在编译时隐藏自己使用的依赖，但是在运行时这个依赖对所有模块是可见的。
+  //而api与compile一样，无法隐藏自己使用的依赖。
+  //implementation的目的:1. 加快编译速度。 2. 隐藏对外不必要的接口。
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  
+  implementation 'org.springframework.boot:spring-boot-starter-freemarker'
     
-    implementation 'com.alibaba:fastjson:1.2.60'
+  implementation 'com.alibaba:fastjson:1.2.60'
     
-    //https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-	//在编译时使lombok生效 
-	annotationProcessor 'org.projectlombok:lombok:1.18.12'
-	
-	//仅在编译时需要
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	
-	//测试是需要
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-	  exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+  compileOnly 'org.projectlombok:lombok:1.18.12'
+  //在编译时使lombok生效 
+  annotationProcessor 'org.projectlombok:lombok:1.18.12'
+  
+  //仅在编译时需要
+  providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+  
+  //单元测试  
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  
+  //@wjw_comment: For Eclipse Run JUnit5
+  testImplementation 'org.junit.platform:junit-platform-launcher'    
 }
 
 test {
-	useJUnitPlatform()
+  useJUnitPlatform()
 }
