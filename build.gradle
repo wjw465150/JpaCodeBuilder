@@ -1,5 +1,5 @@
 plugins {
-  id 'org.springframework.boot' version '2.3.10.RELEASE'
+  id 'org.springframework.boot' version '2.4.13'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'java'
   id 'war'
@@ -11,8 +11,7 @@ sourceCompatibility = '1.8'
 targetCompatibility = 1.8
 
 repositories {
-  mavenLocal()
-  maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }  //优先使用阿里的镜像
+  maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }  //优先使用阿里的镜像
   mavenCentral()
 }
 
