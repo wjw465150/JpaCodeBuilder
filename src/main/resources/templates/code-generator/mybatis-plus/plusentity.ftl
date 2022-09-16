@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  */
 @Data<#if swagger?exists && swagger==true>
 @ApiModel("${classInfo.classComment}")</#if>
+@TableName("${classInfo.tableName}")
 public class ${classInfo.className} implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,6 +26,7 @@ public class ${classInfo.className} implements Serializable {
     * ${fieldItem.fieldComment}
     */<#if swagger?exists && swagger==true>
     @ApiModelProperty("${fieldItem.fieldComment}")</#if>
+    @TableField("${fieldItem.columnName}")
     private ${fieldItem.fieldClass} ${fieldItem.fieldName};
 
 </#list>
