@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
  */
 @Data<#if swagger?exists && swagger==true>
 @ApiModel("${classInfo.classComment}")</#if>
-@TableName("${classInfo.tableName}")
+@TableName(value="${classInfo.tableName}", autoResultMap=true)
 public class ${classInfo.className} implements Serializable {
 
     private static final long serialVersionUID = 1L;
